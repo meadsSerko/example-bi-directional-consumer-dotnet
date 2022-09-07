@@ -66,7 +66,7 @@ namespace tests
                var products = await client.GetProducts(ctx.MockServerUri.AbsoluteUri, null);
 
                 //Assert
-                Assert.IsType<int>(products[0].id);
+                Assert.IsType<string>(products[0].id);
                 Assert.IsType<string>(products[0].name);
                 Assert.IsType<string>(products[0].type);
             });
@@ -84,7 +84,7 @@ namespace tests
                 .WithHeader("Content-Type", "application/json; charset=utf-8")
                 .WithJsonBody(new
                 {
-                    id = Match.Type(27),
+                    id = Match.Type("27"),
                     name = Match.Type("burger"),
                     type = Match.Type("food")
                 });
@@ -96,7 +96,7 @@ namespace tests
                 var product = await client.GetProduct(ctx.MockServerUri.AbsoluteUri, 27, null);
 
                 //Assert
-                Assert.IsType<int>(product.id);
+                Assert.IsType<string>(product.id);
                 Assert.IsType<string>(product.name);
                 Assert.IsType<string>(product.type);
             });
