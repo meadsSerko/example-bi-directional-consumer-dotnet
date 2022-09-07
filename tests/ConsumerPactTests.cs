@@ -54,7 +54,7 @@ namespace tests
                 .WithHeader("Content-Type", "application/json; charset=utf-8")
                 .WithJsonBody(Match.MinType(new
                 {
-                    id = 27,
+                    id = "27",
                     name = "burger",
                     type = "food"
                 }, 1));
